@@ -28,6 +28,7 @@
           src = ./.;
           python = pythonVersion;
           requirements = builtins.readFile ./requirements.txt;
+          pypiDataRev = "pypi";
           #version =; gets automatically detected
         };
         pythonAppEnv = mach.mkPython {

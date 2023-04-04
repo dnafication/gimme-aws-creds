@@ -654,7 +654,7 @@ class GimmeAWSCreds(object):
     def saml_data(self):
         if 'saml_data' in self._cache:
             return self._cache['saml_data']
-        self._cache['saml_data'] = saml_data = self.okta.get_saml_response(self.aws_app['links']['appLink'])
+        self._cache['saml_data'] = saml_data = self.okta.get_saml_response_browser(self.aws_app['links']['appLink'])
         return saml_data
 
     @property

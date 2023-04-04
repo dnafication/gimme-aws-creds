@@ -32,7 +32,8 @@ from requests.adapters import HTTPAdapter, Retry
 
 from gimme_aws_creds.u2f import FactorU2F
 from gimme_aws_creds.webauthn import WebAuthnClient, FakeAssertion
-from . import errors, ui, version, duo
+from . import errors, duo, version
+from .okta_browser import OktaBrowser
 from .errors import GimmeAWSCredsMFAEnrollStatus
 from .registered_authenticators import RegisteredAuthenticators
 
@@ -725,6 +726,11 @@ class OktaClient(object):
             raise RuntimeError(saml_error)
 
         return {'SAMLResponse': saml_response, 'RelayState': relay_state, 'TargetUrl': form_action}
+
+    def get_saml_response_browser(self, url):
+      credentials = self._get_username_password_creds()
+      ob = OktaBrowser(self.ui)
+      return ob.get_saml_response(url, credentials['username'], credentials['password'])
 
     def check_kwargs(self, kwargs):
         if self._use_oauth_access_token is True:

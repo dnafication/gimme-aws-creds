@@ -19,15 +19,15 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setup(
-    name='gimme aws creds',
+    name='gimme aws creds browser',
     version=gimme_aws_creds.version,
     install_requires=requirements,
     author='Eric Pierce',
     author_email='eric.pierce@nike.com',
-    description="A CLI to get temporary AWS credentials from Okta",
-    url='https://github.com/Nike-Inc/gimme-aws-creds',
+    description="Its a fork! A CLI to get temporary AWS credentials from Okta using browser automation.",
+    url='https://github.com/dnafication/gimme-aws-creds',
     long_description=open("LONG_DESCRIPTION.md").read(),
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     license='Apache License, v2.0',
     packages=find_packages(exclude=('tests', 'docs')),
     test_suite="tests",
