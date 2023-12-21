@@ -78,7 +78,7 @@ target/
 .ipynb_*
 
 # pyenv
-.python-version
+# .python-version
 
 # celery beat schedule file
 celerybeat-schedule
